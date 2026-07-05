@@ -6,73 +6,18 @@
     <title>ShadowTrap Airlock — Autonomous Deception Engine</title>
     <meta name="description" content="ShadowTrap Airlock is an AI-powered deception platform that misleads attackers with dynamic synthetic environments. Don't block — trap and study.">
 
-    <!-- Performance optimizations -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <!-- Performance: DNS prefetch and preconnect -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-
-    <!-- Preconnect to font domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload critical fonts -->
+    <!-- Async font loading to prevent render blocking -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"></noscript>
 
-    <!-- Inline critical CSS for above-the-fold content -->
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',system-ui,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.6;overflow-x:hidden}
-        .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,17,23,.85);backdrop-filter:blur(20px);border-bottom:1px solid #30363d}
-        .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
-        .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:1px}
-        .logo-icon{font-size:24px}
-        .logo-accent{color:#00ffaa}
-        .nav-links{display:flex;list-style:none;gap:32px}
-        .nav-links a{color:#8b949e;font-size:14px;font-weight:500;transition:all .3s;position:relative}
-        .nav-links a:hover{color:#e6edf3}
-        .btn-primary{background:#00ffaa;color:#0d1117;border:2px solid #00ffaa;padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px;transition:all .3s}
-        .hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 24px 80px;overflow:hidden}
-        .hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
-        .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,255,170,.1);border:1px solid #00ffaa;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;color:#00ffaa;margin-bottom:24px}
-        .hero-title{font-size:56px;font-weight:800;line-height:1.1;margin-bottom:24px}
-        .gradient-text{background:linear-gradient(135deg,#00ffaa,#58a6ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .hero-subtitle{font-size:18px;color:#8b949e;max-width:540px;margin-bottom:40px}
-        .hero-cta{display:flex;gap:16px;margin-bottom:60px}
-        .btn-glow{background:#00ffaa;color:#0d1117;border:2px solid #00ffaa;padding:16px 32px;border-radius:10px;font-weight:600;font-size:16px;box-shadow:0 0 20px rgba(0,255,170,.3)}
-        .btn-outline{background:transparent;color:#e6edf3;border:2px solid #484f58;padding:16px 32px;border-radius:10px;font-weight:600;font-size:16px}
-        .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-        .stat{text-align:center}
-        .stat-number{font-size:32px;font-weight:800;color:#00ffaa;font-family:'JetBrains Mono',monospace}
-        .stat-label{font-size:12px;color:#8b949e;text-transform:uppercase;letter-spacing:1px}
-        .terminal-window{background:#161b22;border:1px solid #30363d;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.5)}
-        .terminal-header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#21262d;border-bottom:1px solid #30363d}
-        .terminal-dots{display:flex;gap:8px}
-        .terminal-dots span{width:12px;height:12px;border-radius:50%}
-        .terminal-dots span:nth-child(1){background:#ff5f56}
-        .terminal-dots span:nth-child(2){background:#ffbd2e}
-        .terminal-dots span:nth-child(3){background:#27c93f}
-        .terminal-title{font-size:12px;color:#8b949e;font-family:'JetBrains Mono',monospace;flex:1;text-align:center;margin-right:52px}
-        .terminal-body{padding:20px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8}
-        .terminal-line{display:flex;align-items:center;gap:12px;margin-bottom:2px}
-        .timestamp{color:#484f58;font-size:11px;min-width:70px}
-        .success{color:#00ffaa}
-        .warning{color:#f0883e}
-        .info{color:#58a6ff}
-        .text{color:#e6edf3}
-        .text.dim{color:#8b949e}
-        .cursor{color:#00ffaa;font-weight:700;animation:blink 1s step-end infinite}
-        @keyframes blink{50%{opacity:0}}
-        @media(max-width:1024px){.hero-content{grid-template-columns:1fr;text-align:center}.hero-title{font-size:42px}.hero-subtitle{margin:0 auto 40px}.hero-cta{justify-content:center}.hero-stats{justify-content:center}.hero-visual{order:-1}}
-        @media(max-width:768px){.hero-title{font-size:32px}.hero-stats{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}}
-    </style>
-
-    <!-- Async load full CSS -->
-    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
-
-    <!-- Preload critical JS -->
-    <link rel="preload" href="script.js" as="script">
+    <!-- Minified CSS -->
+    <link rel="stylesheet" href="styles.min.css">
 <base target="_blank">
 </head>
 <body>
@@ -93,104 +38,225 @@
             <div class="nav-cta">
                 <a href="#pricing" class="btn btn-primary">Get Started</a>
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+            <div class="glow-orb glow-1"></div>
+            <div class="glow-orb glow-2"></div>
+        </div>
         <div class="hero-content">
-            <div class="hero-text">
-                <div class="badge">
-                    <span>●</span>
-                    <span>AI-Powered Deception Technology</span>
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span>AI-Powered Deception Technology</span>
+            </div>
+            <h1 class="hero-title">
+                Don't Block Attackers.<br>
+                <span class="gradient-text">Mislead Them.</span>
+            </h1>
+            <p class="hero-subtitle">
+                ShadowTrap Airlock is the first deception platform built for the AI era. 
+                Dynamic synthetic environments, ML behavioral analysis, and multi-protocol 
+                traps that capture and study threats before they reach real assets.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn btn-glow btn-large">Watch Demo</a>
+                <a href="#architecture" class="btn btn-outline btn-large">View Architecture</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-label">Attack Patterns</div>
                 </div>
-                <h1 class="hero-title">
-                    Don't Block Attackers.<br>
-                    <span class="gradient-text">Mislead Them.</span>
-                </h1>
-                <p class="hero-subtitle">
-                    ShadowTrap Airlock is the first deception platform built for the AI era. 
-                    Dynamic synthetic environments, ML behavioral analysis, and multi-protocol 
-                    traps that capture and study threats before they reach real assets.
-                </p>
-                <div class="hero-cta">
-                    <a href="#demo" class="btn btn-glow">Watch Demo</a>
-                    <a href="#architecture" class="btn btn-outline">View Architecture</a>
+                <div class="stat">
+                    <div class="stat-number" data-count="3">0</div>
+                    <div class="stat-label">Protocols Trapped</div>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Attack Patterns</div>
+                <div class="stat">
+                    <div class="stat-number">&lt;0.3s</div>
+                    <div class="stat-label">Detection Speed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">% Per-Session Unique</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span></span><span></span><span></span>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Protocols Trapped</div>
+                    <div class="terminal-title">shadowtrap — live session</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="timestamp">[14:23:01]</span>
+                        <span class="success">✓</span>
+                        <span class="text">HTTP proxy engaged on :8080</span>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">&lt;0.3s</div>
-                        <div class="stat-label">Detection Speed</div>
+                    <div class="terminal-line">
+                        <span class="timestamp">[14:23:01]</span>
+                        <span class="success">✓</span>
+                        <span class="text">HTTPS MITM CA loaded</span>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Per-Session Unique</div>
+                    <div class="terminal-line">
+                        <span class="timestamp">[14:23:01]</span>
+                        <span class="success">✓</span>
+                        <span class="text">SSH deception active on :2222</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="timestamp">[14:23:01]</span>
+                        <span class="success">✓</span>
+                        <span class="text">ML engine initialized</span>
+                    </div>
+                    <div class="terminal-line spacer"></div>
+                    <div class="terminal-line alert">
+                        <span class="timestamp">[14:23:45]</span>
+                        <span class="warning">⚠</span>
+                        <span class="text">Anomaly detected: 192.168.1.45</span>
+                    </div>
+                    <div class="terminal-line indent">
+                        <span class="text dim">→ Path diversity: 0.85 | Requests: 12</span>
+                    </div>
+                    <div class="terminal-line indent">
+                        <span class="text dim">→ ML Score: 4.2/5.0 | AUTO-QUARANTINED</span>
+                    </div>
+                    <div class="terminal-line spacer"></div>
+                    <div class="terminal-line">
+                        <span class="timestamp">[14:23:46]</span>
+                        <span class="info">ℹ</span>
+                        <span class="text">Serving synthetic AWS metadata...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="timestamp">[14:23:46]</span>
+                        <span class="info">ℹ</span>
+                        <span class="text">Canary token deployed: sk_live_********</span>
+                    </div>
+                    <div class="terminal-line spacer"></div>
+                    <div class="terminal-line blink">
+                        <span class="cursor">_</span>
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <div class="terminal-dots">
-                            <span></span><span></span><span></span>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="trusted-by">
+        <div class="container">
+            <p class="trusted-label">Built for modern security teams</p>
+            <div class="trusted-logos">
+                <div class="logo-item"><span>🏢</span> Enterprise</div>
+                <div class="logo-item"><span>☁️</span> Cloud-Native</div>
+                <div class="logo-item"><span>⚡</span> Critical Infra</div>
+                <div class="logo-item"><span>🔧</span> MSSPs</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section problem-section" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag tag-red">The Threat</span>
+                <h2>AI-Powered Attacks Have Outpaced Traditional Defenses</h2>
+                <p>Signature-based detection is obsolete. Firewalls tell attackers to go away — they just generate a new approach.</p>
+            </div>
+            <div class="threat-grid">
+                <div class="threat-card">
+                    <div class="threat-icon">🤖</div>
+                    <h3>AI-Generated Exploits</h3>
+                    <p>LLMs write unlimited exploit variants. Static signatures can't keep up with infinite permutations.</p>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">⚡</div>
+                    <h3>Autonomous Botnets</h3>
+                    <p>Scan entire infrastructures in minutes. 500 requests per second, each with a unique payload.</p>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">🎭</div>
+                    <h3>Polymorphic Malware</h3>
+                    <p>Changes structure every execution. No hash, no signature, no pattern to detect.</p>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">🔓</div>
+                    <h3>Credential Harvesting</h3>
+                    <p>AI steals and validates credentials in real-time. Lateral movement before you know it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section solution-section" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag tag-green">The Solution</span>
+                <h2>Active Deception. Not Passive Defense.</h2>
+                <p>ShadowTrap doesn't block — it engages. Every attacker gets a unique synthetic world designed to waste their time and capture their intent.</p>
+            </div>
+            <div class="solution-showcase">
+                <div class="solution-visual">
+                    <div class="flow-diagram">
+                        <div class="flow-step">
+                            <div class="flow-icon">🔴</div>
+                            <div class="flow-label">Attacker</div>
+                            <div class="flow-desc">AI bot / APT / Insider</div>
                         </div>
-                        <div class="terminal-title">shadowtrap — live session</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="flow-icon">🟠</div>
+                            <div class="flow-label">Perimeter</div>
+                            <div class="flow-desc">Firewall / WAF / EDR</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step highlight">
+                            <div class="flow-icon">🟢</div>
+                            <div class="flow-label">ShadowTrap</div>
+                            <div class="flow-desc">Engage & Analyze</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="flow-icon">🟣</div>
+                            <div class="flow-label">Synthetic World</div>
+                            <div class="flow-desc">Fake Data & Tokens</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="flow-icon">🟡</div>
+                            <div class="flow-label">Intelligence</div>
+                            <div class="flow-desc">Alert & Study</div>
+                        </div>
                     </div>
-                    <div class="terminal-body">
-                        <div class="terminal-line">
-                            <span class="timestamp">[14:23:01]</span>
-                            <span class="success">✓</span>
-                            <span class="text">HTTP proxy engaged on :8080</span>
+                </div>
+                <div class="solution-features">
+                    <div class="feature-item">
+                        <div class="feature-num">01</div>
+                        <div class="feature-content">
+                            <h3>Structural Detection</h3>
+                            <p>No signatures. Detects attack patterns by structure — SELECT, UNION, OR 1=, path traversal markers. Works even when AI obfuscates the payload.</p>
                         </div>
-                        <div class="terminal-line">
-                            <span class="timestamp">[14:23:01]</span>
-                            <span class="success">✓</span>
-                            <span class="text">HTTPS MITM CA loaded</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-num">02</div>
+                        <div class="feature-content">
+                            <h3>ML Behavioral Scoring</h3>
+                            <p>Statistical anomaly detection identifies bot-driven scanning in under 5 requests. Per-session clustering with auto-quarantine.</p>
                         </div>
-                        <div class="terminal-line">
-                            <span class="timestamp">[14:23:01]</span>
-                            <span class="success">✓</span>
-                            <span class="text">SSH deception active on :2222</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="timestamp">[14:23:01]</span>
-                            <span class="success">✓</span>
-                            <span class="text">ML engine initialized</span>
-                        </div>
-                        <div class="terminal-line" style="height:8px"></div>
-                        <div class="terminal-line">
-                            <span class="timestamp">[14:23:45]</span>
-                            <span class="warning">⚠</span>
-                            <span class="text">Anomaly detected: 192.168.1.45</span>
-                        </div>
-                        <div class="terminal-line" style="padding-left:24px">
-                            <span class="text dim">→ Path diversity: 0.85 | Requests: 12</span>
-                        </div>
-                        <div class="terminal-line" style="padding-left:24px">
-                            <span class="text dim">→ ML Score: 4.2/5.0 | AUTO-QUARANTINED</span>
-                        </div>
-                        <div class="terminal-line" style="height:8px"></div>
-                        <div class="terminal-line">
-                            <span class="timestamp">[14:23:46]</span>
-                            <span class="info">ℹ</span>
-                            <span class="text">Serving synthetic AWS metadata...</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="timestamp">[14:23:46]</span>
-                            <span class="info">ℹ</span>
-                            <span class="text">Canary token deployed: sk_live_********</span>
-                        </div>
-                        <div class="terminal-line" style="height:8px"></div>
-                        <div class="terminal-line">
-                            <span class="cursor">_</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-num">03</div>
+                        <div class="feature-content">
+                            <h3>Polymorphic Responses</h3>
+                            <p>Every attacker receives a unique synthetic environment. Fake AWS metadata, S3 buckets, API tokens — all dynamically generated per session.</p>
                         </div>
                     </div>
                 </div>
@@ -198,19 +264,499 @@
         </div>
     </section>
 
-    <!-- Rest of content loaded via JS for faster initial paint -->
-    <div id="content-loader"></div>
+    <!-- Features Section -->
+    <section class="section features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag tag-blue">Capabilities</span>
+                <h2>Multi-Protocol Deception Engine</h2>
+                <p>One platform. Three protocols. Infinite synthetic worlds.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">🔒</div>
+                    <h3>HTTPS MITM</h3>
+                    <p>Full SSL/TLS decryption with custom CA. Inspects encrypted payloads for hidden attacks that bypass perimeter defenses.</p>
+                    <div class="feature-tags">
+                        <span class="tag">SSL Stripping</span>
+                        <span class="tag">Payload Inspection</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🧠</div>
+                    <h3>ML Anomaly Scoring</h3>
+                    <p>Statistical behavioral analysis identifies bot-driven scanning campaigns in real-time, even when every request is unique.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Behavioral Clustering</span>
+                        <span class="tag">Auto-Quarantine</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🎭</div>
+                    <h3>Polymorphic Deception</h3>
+                    <p>Every attacker gets a unique fake environment. No pattern to learn, no topology to map, no data to steal.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Per-Session Unique</span>
+                        <span class="tag">Dynamic Generation</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🔐</div>
+                    <h3>SSH Credential Trap</h3>
+                    <p>Decoy SSH server on port 2222 captures usernames and passwords from brute-force and lateral movement attempts.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Credential Capture</span>
+                        <span class="tag">Brute-Force Detection</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🍯</div>
+                    <h3>Canary Honeytokens</h3>
+                    <p>Seeds realistic fake credentials in standard locations. AWS keys, Stripe tokens, JWTs — theft triggers instant alerts.</p>
+                    <div class="feature-tags">
+                        <span class="tag">AWS Keys</span>
+                        <span class="tag">Stripe Tokens</span>
+                        <span class="tag">JWTs</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">📊</div>
+                    <h3>Real-Time Intelligence</h3>
+                    <p>Live session tracking with suspicion scoring, request classification, and automated webhook dispatch to SIEM platforms.</p>
+                    <div class="feature-tags">
+                        <span class="tag">SIEM Integration</span>
+                        <span class="tag">Webhook Alerts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Deferred JS -->
-    <script defer src="script.js"></script>
+    <!-- How It Works -->
+    <section class="section how-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag tag-purple">Process</span>
+                <h2>How ShadowTrap Works</h2>
+                <p>From first request to full intelligence in seconds.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Intercept</h3>
+                        <p>All HTTP/HTTPS traffic routes through ShadowTrap proxy. SSH connections hit the deception server on :2222. Every request is parsed, logged, and analyzed.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="code-comment">// HTTP Proxy + MITM</span><br>
+                            <span class="code-keyword">proxy</span>.<span class="code-func">OnRequest</span>().<span class="code-func">DoFunc</span>(<span class="code-keyword">func</span>(req) {<br>
+                            &nbsp;&nbsp;session := <span class="code-func">GetOrCreateSession</span>(clientIP)<br>
+                            &nbsp;&nbsp;session.<span class="code-func">RecordRequest</span>(req.URL.Path)<br>
+                            &nbsp;&nbsp;<span class="code-keyword">return</span> req<br>
+                            })
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Detect</h3>
+                        <p>Structural analysis checks for 15+ attack patterns. ML anomaly scoring measures request velocity, path diversity, and payload entropy. Suspicious sessions are flagged instantly.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="code-comment">// ML Anomaly Detection</span><br>
+                            <span class="code-keyword">func</span> <span class="code-func">calculateScore</span>(s *Session) <span class="code-type">float64</span> {<br>
+                            &nbsp;&nbsp;<span class="code-keyword">if</span> pathDiv > 0.7 {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;score += <span class="code-num">2.5</span> <span class="code-comment">// Scanning detected</span><br>
+                            &nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;<span class="code-keyword">return</span> score<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Deceive</h3>
+                        <p>Flagged sessions receive synthetic responses instead of real data. Fake AWS metadata, S3 listings, API health checks — all believable, all useless to the attacker.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="code-comment">// Dynamic Response</span><br>
+                            <span class="code-keyword">func</span> <span class="code-func">generateSyntheticResponse</span>(req) {<br>
+                            &nbsp;&nbsp;<span class="code-keyword">switch</span> req.Path {<br>
+                            &nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-str">"/latest/meta-data"</span>:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-func">generateFakeEC2Metadata</span>()<br>
+                            &nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-str">"/api/health"</span>:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-func">generateFakeHealth</span>()<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Alert</h3>
+                        <p>Full session intelligence is dispatched via webhook to your SIEM. File logs capture every interaction. The Wails UI shows real-time telemetry with suspicion scores and attack classification.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="code-comment">// Webhook Alert</span><br>
+                            {<br>
+                            &nbsp;&nbsp;<span class="code-str">"alert"</span>: <span class="code-str">"ML_ANOMALY"</span>,<br>
+                            &nbsp;&nbsp;<span class="code-str">"ip"</span>: <span class="code-str">"192.168.1.45"</span>,<br>
+                            &nbsp;&nbsp;<span class="code-str">"score"</span>: <span class="code-num">4.2</span>,<br>
+                            &nbsp;&nbsp;<span class="code-str">"paths"</span>: [<span class="code-str">"/admin"</span>, <span class="code-str">"/api"</span>],<br>
+                            &nbsp;&nbsp;<span class="code-str">"action"</span>: <span class="code-str">"AUTO_QUARANTINE"</span><br>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Inline loader to fetch rest of content -->
-    <script>
-        // Load remaining sections after initial paint
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fetch and inject the rest of the page content
-            // This is a simplified version - in production you'd split into chunks
-        });
-    </script>
+    <!-- Architecture Section -->
+    <section class="section architecture-section" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag tag-cyan">Architecture</span>
+                <h2>Built for Speed. Designed for Deception.</h2>
+                <p>Single binary. Zero dependencies. Deploy anywhere.</p>
+            </div>
+            <div class="arch-diagram">
+                <div class="arch-layer arch-threat">
+                    <div class="arch-label">Threat Layer</div>
+                    <div class="arch-items">
+                        <div class="arch-item">AI Attacker</div>
+                        <div class="arch-item">Botnet</div>
+                        <div class="arch-item">Insider</div>
+                        <div class="arch-item">APT</div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer arch-perimeter">
+                    <div class="arch-label">Perimeter</div>
+                    <div class="arch-items">
+                        <div class="arch-item">Firewall</div>
+                        <div class="arch-item">IDS/IPS</div>
+                        <div class="arch-item">EDR</div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer arch-engine">
+                    <div class="arch-label">ShadowTrap Engine</div>
+                    <div class="arch-sublayers">
+                        <div class="arch-sublayer">
+                            <div class="arch-subtitle">Ingress</div>
+                            <div class="arch-items">
+                                <div class="arch-item">HTTP :8080</div>
+                                <div class="arch-item">HTTPS MITM</div>
+                                <div class="arch-item">SSH :2222</div>
+                            </div>
+                        </div>
+                        <div class="arch-sublayer">
+                            <div class="arch-subtitle">Detection</div>
+                            <div class="arch-items">
+                                <div class="arch-item">Structural</div>
+                                <div class="arch-item">ML Scoring</div>
+                                <div class="arch-item">Session</div>
+                            </div>
+                        </div>
+                        <div class="arch-sublayer">
+                            <div class="arch-subtitle">Synthesis</div>
+                            <div class="arch-items">
+                                <div class="arch-item">AWS Meta</div>
+                                <div class="arch-item">S3</div>
+                                <div class="arch-item">API</div>
+                                <div class="arch-item">Mirage</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer arch-output">
+                    <div class="arch-label">Intelligence</div>
+                    <div class="arch-items">
+                        <div class="arch-item">Webhooks</div>
+                        <div class="arch-item">Wails UI</div>
+                        <div class="arch-item">File Logs</div>
+                        <div class="arch-item">Canary</div>
+                    </div>
+                </div>
+            </div>
+            <div class="arch-specs">
+                <div class="spec-card">
+                    <div class="spec-icon">⚡</div>
+                    <h4>Single Binary</h4>
+                    <p>Go + Wails. One EXE. No Docker, no dependencies, no configuration hell.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">🔒</div>
+                    <h4>Custom CA</h4>
+                    <p>RSA-2048 per-deployment. Private key never leaves host. Standard x509 chain.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">📈</div>
+                    <h4>10K req/sec</h4>
+                    <p>Single-node throughput. In-memory session store. No database latency.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">🌐</div>
+                    <h4>Cross-Platform</h4>
+                    <p>Windows EXE, Linux binary, Docker container. Deploy anywhere in seconds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Threat Counter Section -->
+    <section class="section counter-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag tag-orange">AI vs AI</span>
+                <h2>AI Threat → ShadowTrap Counter</h2>
+                <p>Every AI attack vector has a deception countermeasure.</p>
+            </div>
+            <div class="counter-grid">
+                <div class="counter-row">
+                    <div class="counter-threat">
+                        <div class="counter-icon">🤖</div>
+                        <div class="counter-text">
+                            <h4>AI generates 1,000 SQLi variants/min</h4>
+                            <p>LLM writes infinite obfuscated payloads</p>
+                        </div>
+                    </div>
+                    <div class="counter-arrow">→</div>
+                    <div class="counter-defense">
+                        <div class="counter-icon">🛡️</div>
+                        <div class="counter-text">
+                            <h4>Structural Detection</h4>
+                            <p>Detects SELECT/UNION/OR 1= — pattern, not signature</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="counter-row">
+                    <div class="counter-threat">
+                        <div class="counter-icon">⚡</div>
+                        <div class="counter-text">
+                            <h4>Bot scans 500 endpoints/second</h4>
+                            <p>Autonomous reconnaissance at scale</p>
+                        </div>
+                    </div>
+                    <div class="counter-arrow">→</div>
+                    <div class="counter-defense">
+                        <div class="counter-icon">🧠</div>
+                        <div class="counter-text">
+                            <h4>ML Anomaly Scoring</h4>
+                            <p>Flags scanning behavior in &lt;5 requests</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="counter-row">
+                    <div class="counter-threat">
+                        <div class="counter-icon">🔓</div>
+                        <div class="counter-text">
+                            <h4>AI steals credentials from host</h4>
+                            <p>Lateral movement with harvested keys</p>
+                        </div>
+                    </div>
+                    <div class="counter-arrow">→</div>
+                    <div class="counter-defense">
+                        <div class="counter-icon">🍯</div>
+                        <div class="counter-text">
+                            <h4>Canary Honeytokens</h4>
+                            <p>Fake tokens in ~/.aws/ — usage = instant alert</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="counter-row">
+                    <div class="counter-threat">
+                        <div class="counter-icon">🗺️</div>
+                        <div class="counter-text">
+                            <h4>AI maps network topology</h4>
+                            <p>Targeted recon for lateral movement</p>
+                        </div>
+                    </div>
+                    <div class="counter-arrow">→</div>
+                    <div class="counter-defense">
+                        <div class="counter-icon">🎭</div>
+                        <div class="counter-text">
+                            <h4>Polymorphic Mirage</h4>
+                            <p>Every probe gets different fake infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag tag-green">Pricing</span>
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Start free. Scale as you grow. No hidden fees.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Community</h3>
+                        <div class="pricing-price">
+                            <span class="price">Free</span>
+                            <span class="period">forever</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>HTTP proxy engine</li>
+                        <li>Basic deception responses</li>
+                        <li>Local file logging</li>
+                        <li>Single deployment</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-full">Download</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="pricing-price">
+                            <span class="price">$299</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Community</li>
+                        <li>HTTPS MITM with custom CA</li>
+                        <li>SSH deception server</li>
+                        <li>ML anomaly detection</li>
+                        <li>Webhook SIEM integration</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-full">Start Trial</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="price">$999</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Professional</li>
+                        <li>Distributed mesh deployment</li>
+                        <li>SIEM integration (Splunk, Sentinel)</li>
+                        <li>REST API access</li>
+                        <li>Priority support</li>
+                        <li>Custom onboarding</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-full">Contact Sales</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>MSSP</h3>
+                        <div class="pricing-price">
+                            <span class="price">Custom</span>
+                            <span class="period">pricing</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Multi-tenant deployment</li>
+                        <li>White-label branding</li>
+                        <li>Bulk endpoint pricing</li>
+                        <li>Dedicated account manager</li>
+                        <li>SLA guarantees</li>
+                        <li>Custom integrations</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-full">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo / CTA Section -->
+    <section class="section cta-section" id="demo">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Turn the Tables on Attackers?</h2>
+                <p>Deploy ShadowTrap Airlock in minutes. Start with the free Community edition and upgrade when you're ready.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-glow btn-large">Download Free</a>
+                    <a href="#" class="btn btn-outline btn-large">Schedule Demo</a>
+                </div>
+                <div class="cta-trust">
+                    <div class="trust-item">
+                        <span class="trust-check">✓</span>
+                        <span>No credit card required</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-check">✓</span>
+                        <span>Single binary, zero dependencies</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-check">✓</span>
+                        <span>Open-source core available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">SHADOWTRAP<span class="logo-accent">AIRLOCK</span></span>
+                    </a>
+                    <p>Autonomous deception engine for the AI era. Don't block — mislead.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShadowTrap Airlock. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="GitHub">GH</a>
+                    <a href="#" aria-label="Twitter">TW</a>
+                    <a href="#" aria-label="LinkedIn">LI</a>
+                    <a href="#" aria-label="Discord">DC</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
