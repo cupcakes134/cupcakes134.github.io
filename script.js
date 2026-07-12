@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.toggle('active');
             this.classList.toggle('active');
         });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
     }
 
     // ===== Navbar Scroll Effect =====
